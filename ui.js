@@ -56,10 +56,27 @@ class UI {
 
     // Clear Alert
     clearAlert() {
-        const currentAlert = document.querySelector(".alert-danger")
-        if(currentAlert) {
-            currentAlert.remove()
+        const userAlert = document.querySelector(".alert-danger");
+        const apiAlert = document.querySelector(".alert-primary");
+        if(userAlert) {
+            userAlert.remove()
+        }
+        if(apiAlert){
+            apiAlert.remove();
         }
         
+    }
+    // Show Message
+    showAPILimit(msg, className) {
+        this.clearAlert();
+        const div = document.createElement("div");
+        div.className = className;
+        div.appendChild(document.createTextNode(msg));
+        const parentDiv = document.querySelector(".search-container");
+        const profileDiv = document.querySelector("#profile");
+        parentDiv.insertBefore(div,profileDiv);
+        setTimeout(() => {
+            this.clearAlert();
+        },4000);
     }
 }
