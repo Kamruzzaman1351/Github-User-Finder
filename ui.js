@@ -3,7 +3,7 @@ class UI {
     constructor() {
         this.profileDiv = document.getElementById("profile");
     }
-
+    // Show Profile
     showProfile(user) {
         console.log(user.avatar_url);
         this.profileDiv.innerHTML = `
@@ -78,5 +78,27 @@ class UI {
         setTimeout(() => {
             this.clearAlert();
         },4000);
+    }
+    // Show Repo
+    showRepo(repos) {
+        const repoDivUI = document.getElementById("repos");
+        let output = '';
+        repos.forEach((repo) => {
+            output += `
+                <div class="card card-body mb-2">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+                        </div>
+                        <div class="col-md-6">
+                             <span class="badge bg-primary mb-2">Stars: ${repo.stargazers_count}</span>
+                             <span class="badge bg-success mb-2">Watchers: ${repo.watchers_count}</span>
+                             <span class="badge bg-info mb-2">Forks: ${repo.forks_count}</span>
+                        </div>
+                    </div>
+                </div>
+            `
+        })
+        repoDivUI.innerHTML = output;
     }
 }

@@ -23,10 +23,12 @@ function getUserInfo(e) {
                 } else if(res.userProfile.message === masg){                    
                     ui.showAPILimit(masg, "alert alert-primary");
                 } else {
-                    // Show UI Profile
+                    // Show UI Profile & Repo
                     const userProfile = res.userProfile;
+                    const userRepos = res.userRepos;
                     ui.showProfile(userProfile);
-                    console.log(res);
+                    ui.showRepo(userRepos);
+                    console.log(userRepos)
                 }
                 
             })
