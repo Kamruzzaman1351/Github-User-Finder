@@ -1,5 +1,7 @@
 // Init GitHub
 const gitHub = new GitHub;
+// Init UI
+const ui = new UI;
 // UI Variables
 const searchUserUI = document.getElementById("search-user");
 
@@ -15,15 +17,18 @@ function getUserInfo(e) {
             .then((res) => {
                 if(res.userProfile.message === "Not Found"){
                     // Show Alert
-                    console.log("Not Found")
+                    ui.showAlart("Profile does not found", "alert alert-danger")
                 } else {
                     // Show UI Profile
-                    console.log(res.userProfile)
+                    const userProfile = res.userProfile;
+                    ui.showProfile(userProfile);
+                    console.log(res);
                 }
                 
             })
     } else{
         // Clear Profile
+        ui.clearProfile();
     }
    
 }
