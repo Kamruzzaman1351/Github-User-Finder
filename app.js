@@ -28,7 +28,7 @@ function getUserInfo(e) {
                     const userRepos = res.userRepos;
                     ui.showProfile(userProfile);
                     ui.showRepo(userRepos);
-                    console.log(userRepos)
+                    // console.log(userRepos)
                 }
                 
             })

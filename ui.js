@@ -5,7 +5,6 @@ class UI {
     }
     // Show Profile
     showProfile(user) {
-        console.log(user.avatar_url);
         this.profileDiv.innerHTML = `
         <div class="card card-body mb-3">
             <div class="row">
